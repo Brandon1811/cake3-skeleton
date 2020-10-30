@@ -4,6 +4,12 @@
     "homepage": "https://cakephp.org",
     "type": "project",
     "license": "MIT",
+    "repositories": [
+        {
+            "type": "git",
+            "url": "https://github.com/elyobo/php-code-coverage.git"
+        }
+    ],
     "require": {
         "php": ">=5.6",
         "burzum/cakephp-service-layer": "^1.0",
@@ -11,7 +17,6 @@
         "cakephp/migrations": "^2.0.0",
         "cakephp/plugin-installer": "^1.0",
         "dereuromark/cakephp-captcha": "^0.1",
-        "dereuromark/cakephp-ide-helper": "^0.14",
         "dereuromark/cakephp-setup": "^1.5",
         "dereuromark/cakephp-tools": "^1.9",
         "friendsofcake/crud": "^5.0",
@@ -25,7 +30,18 @@
         "cakephp/debug_kit": "^3.17.0",
         "josegonzalez/dotenv": "3.*",
         "phpunit/phpunit": "^5|^6",
-        "psy/psysh": "@stable"
+        "psy/psysh": "@stable",
+        "dereuromark/cakephp-test-helper": "^0.1.0",
+        "dereuromark/cakephp-ide-helper": "^0.14.9",
+        "friendsofcake/fixturize": "^1.0",
+        "php-parallel-lint/php-console-highlighter": "^0.4.0",
+        "php-parallel-lint/php-parallel-lint": "^1.0",
+        "pdepend/pdepend": "^2.5",
+        "phploc/phploc": "^4.0",
+        "phpmd/phpmd": "^2.6",
+        "sebastian/phpcpd": "^1.4",
+        "phpstan/phpstan": "^0.12",
+        "phpunit/php-code-coverage": "dev-4.0-dev as 4.0.4"
     },
     "suggest": {
         "markstory/asset_compress": "An asset compression plugin which provides file concatenation and a flexible filter system for preprocessing and minification.",
