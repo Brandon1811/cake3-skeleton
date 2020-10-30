@@ -34,11 +34,13 @@ class Application extends BaseApplication
      */
     public function bootstrap()
     {
-        $this->addPlugin('Tools', ['bootstrap' => false]);
+
         $this->addPlugin('AssetCompress');
         $this->addPlugin('Captcha', ['bootstrap' => true, 'routes' => true]);
+        $this->addPlugin('Crud');
         $this->addPlugin('Muffin/Trash');
         $this->addPlugin('Setup');
+        $this->addPlugin('Tools', ['bootstrap' => false]);
 
         // Call parent to load bootstrap from files.
         parent::bootstrap();
@@ -53,6 +55,7 @@ class Application extends BaseApplication
          */
         if (Configure::read('debug')) {
             $this->addPlugin('DebugKit');
+            $this->addPlugin('IdeHelper');
         }
 
         // Load more plugins here

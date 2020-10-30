@@ -15,6 +15,7 @@
 namespace App\Test\TestCase;
 
 use App\Application;
+use Cake\Core\Configure;
 use Cake\Error\Middleware\ErrorHandlerMiddleware;
 use Cake\Http\MiddlewareQueue;
 use Cake\Routing\Middleware\AssetMiddleware;
@@ -39,9 +40,9 @@ class ApplicationTest extends IntegrationTestCase
         $app->bootstrap();
         $plugins = $app->getPlugins();
         if (Configure::read('debug')) {
-            $this->assertCount(9, $plugins);
+            $this->assertCount(10, $plugins);
         } else {
-            $this->assertCount(7, $plugins);
+            $this->assertCount(9, $plugins);
         }
         $this->assertSame('AssetCompress', $plugins->get('AssetCompress')->getName());
         $this->assertSame('Bake', $plugins->get('Bake')->getName());

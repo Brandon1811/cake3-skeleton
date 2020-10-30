@@ -6,12 +6,15 @@
     "license": "MIT",
     "require": {
         "php": ">=5.6",
+        "burzum/cakephp-service-layer": "^1.0",
         "cakephp/cakephp": "3.9.*",
         "cakephp/migrations": "^2.0.0",
         "cakephp/plugin-installer": "^1.0",
         "dereuromark/cakephp-captcha": "^0.1",
+        "dereuromark/cakephp-ide-helper": "^0.14",
         "dereuromark/cakephp-setup": "^1.5",
         "dereuromark/cakephp-tools": "^1.9",
+        "friendsofcake/crud": "^5.0",
         "markstory/asset_compress": "^3.5",
         "mobiledetect/mobiledetectlib": "2.*",
         "muffin/trash": "^2.1"
