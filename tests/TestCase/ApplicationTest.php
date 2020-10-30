@@ -38,11 +38,23 @@ class ApplicationTest extends IntegrationTestCase
         $app = new Application(dirname(dirname(__DIR__)) . '/config');
         $app->bootstrap();
         $plugins = $app->getPlugins();
-
-        $this->assertCount(3, $plugins);
+        if (Configure::read('debug')) {
+            $this->assertCount(9, $plugins);
+        } else {
+            $this->assertCount(7, $plugins);
+        }
+        $this->assertSame('AssetCompress', $plugins->get('AssetCompress')->getName());
         $this->assertSame('Bake', $plugins->get('Bake')->getName());
+        $this->assertSame('Captcha', $plugins->get('Captcha')->getName());
+        $this->assertSame('Crud', $plugins->get('Crud')->getName());
         $this->assertSame('Migrations', $plugins->get('Migrations')->getName());
-        $this->assertSame('DebugKit', $plugins->get('DebugKit')->getName());
+        $this->assertSame('Muffin/Trash', $plugins->get('Muffin/Trash')->getName());
+        $this->assertSame('Tools', $plugins->get('Tools')->getName());
+
+        if (Configure::read('debug')) {
+            $this->assertSame('IdeHelper', $plugins->get('IdeHelper')->getName());
+            $this->assertSame('DebugKit', $plugins->get('DebugKit')->getName());
+        }
     }
 
     /**

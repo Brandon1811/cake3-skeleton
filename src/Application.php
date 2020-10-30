@@ -34,6 +34,12 @@ class Application extends BaseApplication
      */
     public function bootstrap()
     {
+        $this->addPlugin('Tools', ['bootstrap' => false]);
+        $this->addPlugin('AssetCompress');
+        $this->addPlugin('Captcha', ['bootstrap' => true, 'routes' => true]);
+        $this->addPlugin('Muffin/Trash');
+        $this->addPlugin('Setup');
+
         // Call parent to load bootstrap from files.
         parent::bootstrap();
 

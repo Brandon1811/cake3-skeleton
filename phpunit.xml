@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<phpunit
+    colors="true"
+    processIsolation="false"
+    stopOnFailure="false"
+    syntaxCheck="true"
+    bootstrap="./tests/bootstrap.php"
+    beStrictAboutOutputDuringTests="true"
+    convertErrorsToExceptions="true"
+    convertNoticesToExceptions="true"
+    convertWarningsToExceptions="true"
+    strict="true"
+    >
+    <php>
+        <ini name="memory_limit" value="-1"/>
+        <ini name="apc.enable_cli" value="1"/>
+    </php>
+    <logging>
+      <log type="coverage-html" target="build/coverage/report" lowUpperBound="35"
+           highLowerBound="70"/>
+      <log type="coverage-clover" target="build/coverage/coverage.xml"/>
+      <log type="coverage-php" target="build/coverage/coverage.serialized"/>
+      <log type="junit" target="build/phpunit/junit.xml"/>
+      <log type="testdox-html" target="build/phpunit/testdox.html"/>
+      <log type="testdox-text" target="build/phpunit/testdox.txt"/>
+    </logging>
+    <!-- Add any additional test suites you want to run here -->
+    <testsuites>
+        <testsuite name="app">
+            <directory>tests/TestCase/</directory>
+        </testsuite>
+        <testsuite name="controller"> <!-- ALL controller tests -->
+            <directory>tests/TestCase/Controller</directory>
+        </testsuite>
+        <testsuite name="model">
+            <directory>tests/TestCase/Model</directory>
+        </testsuite>
+        <testsuite name="view">
+            <directory>tests/TestCase/View</directory>
+        </testsuite>
+        <!-- Add plugin test suites here. -->
+    </testsuites>
+
+    <!-- Setup a listener for fixtures -->
+    <listeners>
+        <listener
+        class="\Cake\TestSuite\Fixture\FixtureInjector">
+            <arguments>
+                <object class="\Cake\TestSuite\Fixture\FixtureManager" />
+            </arguments>
+        </listener>
+    </listeners>
+
+    <!-- Ignore vendor tests in code coverage reports -->
+    <filter>
+        <whitelist>
+            <directory suffix=".php">src/</directory>
+            <directory suffix=".php">plugins/*/src/</directory>
+            <exclude>
+                <directory suffix=".php">src/Service/</directory>
+                <directory suffix=".php">vendor/</directory>
+                <directory suffix=".php">src/Console</directory>
+            </exclude>
+        </whitelist>
+    </filter>
+</phpunit>
